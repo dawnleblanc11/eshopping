@@ -34,11 +34,8 @@ router.get('/:id', (req, res) => {
       {
         model: Product,
         attributes: ["id", "product_name", "price", "stock", "category_id"],
-      },
-      {
-        model: ProductTag,
-        attributes: ["id", "product_id", "tag_id"],
-      },
+        through: ProductTag,
+    },
     ],
   })
     .then((dbTagData) => res.json(dbTagData))
@@ -51,7 +48,7 @@ router.get('/:id', (req, res) => {
 
 router.post('/', (req, res) => {
   // create a new tag
-  // expects {tag_name: 'silver'}
+  // expects {"tag_name": 'silver'}
   Tag.create({
     tag_name: req.body.tag_name,
   })
@@ -64,6 +61,7 @@ router.post('/', (req, res) => {
 
 router.put('/:id', (req, res) => {
   // update a tag's name by its `id` value
+  // expects {"tag_name": 'silver'}
   Tag.update(
     {
       tag_name: req.body.tag_name,

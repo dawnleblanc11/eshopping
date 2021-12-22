@@ -72,6 +72,7 @@ router.post('/', (req, res) => {
       "product_name": "Basketball",
       "price": 200.00,
       "stock": 3,
+      "category_id": 4;
       "tagIds": [1, 2, 3, 4]
     }
   */
@@ -80,6 +81,7 @@ router.post('/', (req, res) => {
       product_name: req.body.product_name,
       price: req.body.price,
       stock: req.body.stock,
+      cagtegory: req.body.category_id,
       tagIds: [req.body.tagIds]
     })
     .then((product) => {
@@ -123,7 +125,15 @@ router.put('/:id', (req, res) => {
             res.status(500).json(err);
         });
     });
-      // find all associated tags from ProductTag
+      // check to see if tags were in the request to be updated 
+    //   if (req.body.tagIds.length) {
+    //     const productTagIdArr = req.body.tagIds.map((tag_id) => {
+    //       return {
+    //         product_id: product.id,
+    //         tag_id,
+    //       };
+    //     });
+    //find all associated tags from ProductTag
 //       return ProductTag.findAll({ where: { product_id: req.params.id } });
 
 //     .then((productTags) => {
