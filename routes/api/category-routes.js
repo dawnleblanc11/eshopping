@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Category } = require('../../models');
+const { Category, Product } = require('../../models');
 
 // GET /api/categories - the api/categories endpoint
 
@@ -33,7 +33,7 @@ router.get('/:id', (req, res) => {
             model: Product,
             attributes: ["id", "product_name", "price", "stock", "category_id"],
           },
-        ],
+        ]
       })
         .then(dbCategoryData => {
           if (!dbCategoryData) {
