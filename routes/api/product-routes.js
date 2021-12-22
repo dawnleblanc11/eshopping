@@ -76,12 +76,11 @@ router.post('/', (req, res) => {
       "tagIds": [1, 2, 3, 4]
     }
   */
- // need to add category
   Product.create({
       product_name: req.body.product_name,
       price: req.body.price,
       stock: req.body.stock,
-      cagtegory: req.body.category_id,
+      category_id: req.body.category_id,
       tagIds: [req.body.tagIds]
     })
     .then((product) => {
@@ -105,15 +104,31 @@ router.post('/', (req, res) => {
     });
 });
 
-// update product
+// update product  **** WORKS except tags-  need TA help placement of given logic
 router.put('/:id', (req, res) => {
   // update product data- works for product_name, stock, price, category_id
+//   {
+//     "product_name": "Basketball",
+//     "price": 200.00,
+//     "stock": 3,
+//     "category_id": 4;
+//     "tagIds": [1, 2, 3, 4]
+//   }
   // ? how to incorp category name and tags?
-  Product.update(req.body, {
+  Product.update(
+    {
+    product_name: req.body.product_name,
+    price: req.body.price,
+    stock: req.body.stock,
+    category_id: req.body.category_id,
+    tagIds: [req.body.tagIds],
+  },
+  {
     where: {
-      id: req.params.id,
-    },
-  })
+    id: req.params.id
+    }
+}
+)
     .then((product) => {
         if (!product) {
             res.status(404).json({message: 'Could not find a product with this id'});
@@ -125,6 +140,8 @@ router.put('/:id', (req, res) => {
             res.status(500).json(err);
         });
     });
+    //where does this logic given to us go?
+    // how to handle a new category #
       // check to see if tags were in the request to be updated 
     //   if (req.body.tagIds.length) {
     //     const productTagIdArr = req.body.tagIds.map((tag_id) => {
@@ -134,7 +151,7 @@ router.put('/:id', (req, res) => {
     //       };
     //     });
     //find all associated tags from ProductTag
-//       return ProductTag.findAll({ where: { product_id: req.params.id } });
+ //     return ProductTag.findAll({ where: { product_id: req.params.id } });
 
 //     .then((productTags) => {
 //       // get list of current tag_ids
@@ -164,6 +181,7 @@ router.put('/:id', (req, res) => {
 //       // console.log(err);
 //       res.status(400).json(err);
 //     });
+// }
 // }); 
 
 router.delete('/:id', (req, res) => {
