@@ -54,12 +54,12 @@ THEN I am able to successfully create, update, and delete data in my database
   ## Tests
   The included animations show examples of the application's API routes being tested in Insomnia.
 
-![Set up in VScode and user tests in Insomnia “GET All" and "Get One" for Categories, Products and Tags](https://drive.google.com/file/d/1vaIFVHBLOrPrIg9ZlNSoq1GjtL53h9yh/view?usp=sharing)
+https://drive.google.com/file/d/1vaIFVHBLOrPrIg9ZlNSoq1GjtL53h9yh/view?usp=sharing
 Shows the schema, seeds and DB connection functioning, , connecting to a database using Sequelize, database is created and is seeded with test data, enter the command to invoke the application, my server is started and the Sequelize models are synced to the MySQL database
 Shows GET routes to return all categories, all products, and all tags being tested in Insomnia.
 Shows GET routes to return a single category, a single product, and a single tag being tested in Insomnia.
 
-![In Insomnia, the user tests  “CREATE” “UPDATE and “DELETE" for Category, Product and Tags](https://drive.google.com/file/d/13hiefqW_yAYdqIvZMmA0CKd_JRhIoHf8/view?usp=sharing)
+https://drive.google.com/file/d/13hiefqW_yAYdqIvZMmA0CKd_JRhIoHf8/view?usp=sharing
 
 Shows the POST, PUT, and DELETE routes for categories being tested in Insomnia.
 Shows the POST, PUT, and DELETE routes for products being tested in Insomnia.
