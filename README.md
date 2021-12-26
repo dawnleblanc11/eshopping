@@ -16,7 +16,7 @@ wants a back end e-commerce website that uses the latest technologies so that th
   Clone the logic from the GitHub repository indicated above.
   Run `node server.js` to sync the Sequelize models to the MySQL database on server start.
   
-  Run `npm run seed` to seed data to the database
+  Run `node seeds` to seed data to the database
   
   ## Credits
   Starter code provided by UConn. 
@@ -65,8 +65,6 @@ The second animation shows GET routes to return a single category, a single prod
 The third animation shows the POST, PUT, and DELETE routes for categories being tested in Insomnia:
 
 ![In Insomnia, the user tests “DELETE Category by ID,” “CREATE Category,” and “UPDATE Category.”]
-
-Your walkthrough video should also show the POST, PUT, and DELETE routes for products and tags being tested in Insomnia.
 
 The fourth animation shows the POST, PUT, and DELETE routes for products being tested in Insomnia:
 
